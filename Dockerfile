@@ -1,8 +1,5 @@
-# Build local monorepo image
-# docker build --no-cache -t  flowise .
-# Run image
-# docker run -d -p 3000:3000 flowise
-FROM node:18-alpine
+# Build stage
+FROM node:18-alpine AS build
 
 WORKDIR /usr/src/packages
 
@@ -25,6 +22,16 @@ RUN yarn install
 COPY . .
 
 RUN yarn build
+
+# Production stage
+FROM node:18-alpine
+
+WORKDIR /usr/src/app
+
+COPY --from=build /usr/src/packages/package.json ./
+COPY --from=build /usr/src/packages/yarn.lock ./
+COPY --from=build /usr/src/packages/node_modules ./node_modules
+COPY --from=build /usr/src/packages/dist ./dist
 
 EXPOSE 3000
 
