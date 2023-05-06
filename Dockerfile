@@ -19,13 +19,13 @@ COPY packages/ui/package.json ./packages/ui/package.json
 # Copy server package.json
 COPY packages/server/package.json ./packages/server/package.json
 
-RUN yarn install
 
 # Copy app source
 COPY . .
 
-RUN yarn build
+RUN npm install -g flowise
+
 
 EXPOSE 3000
 
-CMD [ "yarn", "start" ]
+CMD [ "npx flowise start" ]
