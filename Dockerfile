@@ -20,7 +20,7 @@ COPY packages/ui/package.json ./packages/ui/package.json
 COPY packages/server/package.json ./packages/server/package.json
 
 RUN yarn install
-RUN yarn global add @turbo/cli
+RUN yarn global add @turbo
 
 # Copy app source
 COPY . .
