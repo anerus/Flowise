@@ -18,6 +18,9 @@ COPY packages/server/package.json ./packages/server/package.json
 
 RUN yarn install
 
+# Install turbo CLI
+RUN yarn global add @turbo/cli
+
 # Copy app source
 COPY . .
 
