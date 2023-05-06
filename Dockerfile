@@ -20,6 +20,7 @@ RUN yarn install
 
 # Install turbo CLI
 RUN npm install -g turbo
+RUN npm install -g @vercel/turborepo
 
 # Copy app source
 COPY . .
