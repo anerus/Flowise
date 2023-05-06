@@ -20,6 +20,7 @@ COPY packages/ui/package.json ./packages/ui/package.json
 COPY packages/server/package.json ./packages/server/package.json
 
 RUN yarn install
+RUN yarn config set registry https://registry.npmjs.org/
 RUN yarn global add @turbo
 
 # Copy app source
