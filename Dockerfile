@@ -8,7 +8,7 @@ WORKDIR /usr/src/packages
 
 # Copy root package.json and lockfile
 COPY package.json ./
-COPY yarn.lock ./
+#COPY yarn.lock ./
 
 # Copy components package.json
 COPY packages/components/package.json ./packages/components/package.json
@@ -20,6 +20,7 @@ COPY packages/ui/package.json ./packages/ui/package.json
 COPY packages/server/package.json ./packages/server/package.json
 
 RUN yarn install
+RUN yarn global add @turbo/cli
 
 # Copy app source
 COPY . .
