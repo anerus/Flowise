@@ -19,6 +19,7 @@ COPY packages/server/package.json ./packages/server/package.json
 RUN yarn install
 
 # Install turbo CLI
+RUN npm install -g turbo
 RUN npm install -g @monkee/turbo-cli
 
 
