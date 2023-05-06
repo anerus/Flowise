@@ -19,7 +19,7 @@ COPY packages/server/package.json ./packages/server/package.json
 RUN yarn install
 
 # Install turbo CLI
-RUN npm install -g @turborepo/cli
+RUN npm install -g @turbo/cli
 
 # Copy app source
 COPY . .
