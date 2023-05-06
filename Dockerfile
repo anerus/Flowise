@@ -19,7 +19,7 @@ COPY packages/server/package.json ./packages/server/package.json
 RUN yarn install
 
 # Install turbo CLI
-RUN yarn global add @turborepo/cli --registry=https://registry.npmjs.org/
+RUN npm install -g @turborepo/cli
 
 # Copy app source
 COPY . .
