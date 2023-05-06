@@ -19,7 +19,7 @@ COPY packages/server/package.json ./packages/server/package.json
 RUN yarn install
 
 # Install turbo CLI
-RUN npm install -g turbo -slim
+RUN npm install -g turbo -canary
 
 
 # Copy app source
